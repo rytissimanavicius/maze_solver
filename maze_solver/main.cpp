@@ -1,25 +1,31 @@
 #include <iostream>
 
-#include "maze.h"
+#include "initialize.h"
+#include "solve.h"
+#include "print.h"
 
 int main()
 {
-	int width, height; //size of the maze
-	int entranceX, entranceY; //entrance coordinates
-	int exitX, exitY; //exit coordinates
+	//size of the maze
+	int width, height; 
+	//entrance coordinates
+	int entranceX, entranceY; 
+	//exit coordinates
+	int exitX, exitY; 
+
+	//dynamic arrays that hold mazes, first one for visual representation and second one for calculations
 	char* maze;
+	char* mazeHelp;
 
-	initMaze(width, height, entranceX, entranceY, exitX, exitY, maze);
+	//initialize both arrays
+	initMain(width, height, entranceX, entranceY, exitX, exitY, maze);
+	int size = width * height;
+	initHelp(size, maze, mazeHelp);
 
-	printf("MAZE SIZE: %dx%d\n", width, height);
-	printf("START COORDINATES: %d/%d\n", entranceX, entranceY);
-	printf("END COORDINATES: %d/%d\n", exitX, exitY);
-
-	for (int i = 0; i < width * height; i++)
-	{
-		if (i % height == 0) std::cout << std::endl;
-		std::cout << " " << maze[i];
-	}
+	//find the exit
+	print(width, height, maze);
+	solveMaze(width, height, entranceX, entranceY, exitX, exitY, mazeHelp);
+	printPath(width, height, maze, mazeHelp);
 
 	return 0;
 }
