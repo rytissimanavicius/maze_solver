@@ -4,7 +4,8 @@
 
 void initMain(int& width, int& height, int& entranceX, int& entranceY, int& exitX, int& exitY, char*& maze)
 {
-	std::ifstream mazeFile("mazes/maze_8x8.txt");
+	//select the maze by changing the name
+	std::ifstream mazeFile("mazes/maze_16x8.txt");
 	if (mazeFile.is_open())
 	{
 		mazeFile >> width;
@@ -30,6 +31,7 @@ void initMain(int& width, int& height, int& entranceX, int& entranceY, int& exit
 		std::cout << "Unable to open file";
 	}
 }
+
 void initHelp(int size, char*& maze, char*& mazeHelp)
 {
 	mazeHelp = new char[size];
