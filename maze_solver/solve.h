@@ -26,19 +26,10 @@ void solveMaze(int width, int height, int entranceX, int entranceY, int exitX, i
 
 void pickTile(int width, int height, float scale, int& playerX, int& playerY, char*& mazeHelp)
 {
-
-
-
-
 	int left1 = (playerX - 1) + ((playerY * height) * scale);
 	int right1 = (playerX + 1) + ((playerY * height) * scale);
 	int left2 = (playerX - 1) + ((playerY * height) * scale);
 	int right2 = (playerX + 1) + ((playerY * height) * scale);
-
-
-
-
-
 
 	if (mazeHelp[playerX + ((playerY - 1) * width)] == '1') //up
 	{
@@ -50,14 +41,6 @@ void pickTile(int width, int height, float scale, int& playerX, int& playerY, ch
 		playerY++;
 		mazeHelp[playerX + (playerY * width)] = '2';
 	}
-
-
-
-
-
-
-
-
 	else if (mazeHelp[left1] == '1') //left
 	{
 		playerX--;
@@ -68,12 +51,6 @@ void pickTile(int width, int height, float scale, int& playerX, int& playerY, ch
 		playerX++;
 		mazeHelp[right1] = '2';
 	}
-
-
-
-
-
-
 	else if (mazeHelp[playerX + ((playerY - 1) * width)] == '2') //up
 	{
 		mazeHelp[playerX + (playerY * width)] = '0';
@@ -84,12 +61,6 @@ void pickTile(int width, int height, float scale, int& playerX, int& playerY, ch
 		mazeHelp[playerX + (playerY * width)] = '0';
 		playerY++;
 	}
-
-
-
-
-
-
 	else if (mazeHelp[left2] == '2') //left
 	{
 		mazeHelp[left2 + 1] = '0';
@@ -100,11 +71,6 @@ void pickTile(int width, int height, float scale, int& playerX, int& playerY, ch
 		mazeHelp[right2 - 1] = '0';
 		playerX++;
 	}
-
-
-
-
-
 }
 
 void winLose(int playerX, int playerY, int entranceX, int entranceY, int exitX, int exitY, int& condition)

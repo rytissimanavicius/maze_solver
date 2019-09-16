@@ -5,7 +5,7 @@
 void initMain(int& width, int& height, int& entranceX, int& entranceY, int& exitX, int& exitY, char*& maze)
 {
 	//select the maze by changing the name
-	std::ifstream mazeFile("mazes/maze_16x8.txt");
+	std::ifstream mazeFile("mazes/maze_17x23.txt");
 	if (mazeFile.is_open())
 	{
 		mazeFile >> width;
